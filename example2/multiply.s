@@ -9,7 +9,7 @@ multiply:
 
 	.global multiplyadd
 multiplyadd:
-	mla r0, r0, r1, r2
+	mla r0, r1, r0, r2
 	bx lr
 	nop
 	.type multiplyadd, function
