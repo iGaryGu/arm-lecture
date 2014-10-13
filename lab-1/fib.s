@@ -29,16 +29,15 @@ fib:
 	
 itr:
 	cmp r5 ,r0
-	bgt finish
+	itt gt
+	movgt r0 ,r4
+	popgt {r4, r5, r6, r7, pc}
 	add r6 ,r4 ,r7
 	mov r7 ,r4
 	mov r4 ,r6
 	@ index ++
 	add r5 ,r5 ,#1
 	b itr
-finish:
-	mov r0 ,r4
-	pop {r4 ,r5 ,r6 ,r7,pc}
 
 	.size fib, .-fib
 	.end
