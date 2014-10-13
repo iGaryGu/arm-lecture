@@ -23,12 +23,12 @@ fibseq.o: fibseq.c
 clean:
 	rm -f $(objects) fibseq
 
-QEMU_CMD = time qemu-arm -L /usr/arm-linux-gnueabihf ./fibseq &
+QEMU_CMD = qemu-arm -L /usr/arm-linux-gnueabihf ./fibseq &
 CMD = yes 9 | $(call QEMU_CMD) && sleep 1
 qemu: fibseq
-	@yes 38 | $(call QEMU_CMD)
+	@yes 7 | $(call QEMU_CMD)
 	@sleep 1
-	@yes 39 | $(call QEMU_CMD)
+	@yes 8 | $(call QEMU_CMD)
 	@sleep 1
-	@yes 40 | $(call QEMU_CMD)
+	@yes 9 | $(call QEMU_CMD)
 	@sleep 1

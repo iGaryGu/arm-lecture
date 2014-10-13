@@ -12,11 +12,11 @@
 
 fib:
 	@r0 = x (input)
-	push {r3 ,r4 ,r5 ,r6 ,lr}
+	push {r4 ,r5 ,r6 ,r7,lr}
 	
-	@r3 = previous
-	mov r3 ,#0
-	add r3 , r3 ,#4294967295
+	@r7 = previous
+	mov r7 ,#0
+	add r7 , r7 ,#4294967295
 
 	@r4 = result
 	mov r4 ,#1
@@ -30,15 +30,15 @@ fib:
 itr:
 	cmp r5 ,r0
 	bgt finish
-	add r6 ,r4 ,r3
-	mov r3 ,r4
+	add r6 ,r4 ,r7
+	mov r7 ,r4
 	mov r4 ,r6
 	@ index ++
 	add r5 ,r5 ,#1
 	b itr
 finish:
 	mov r0 ,r4
-	pop {r3 ,r4 ,r5 ,r6 ,pc}
+	pop {r4 ,r5 ,r6 ,r7,pc}
 
 	.size fib, .-fib
 	.end
